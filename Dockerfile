@@ -1,0 +1,24 @@
+FROM ubuntu:16.04
+
+#ENV COSNAME="cosbench"
+ENV COSVERSION="0.4.2.c4"
+ENV COSPKGNAME="${COSVERSION}.zip"
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+       dpkg apt-transport-https curl apt-utils netcat net-tools openjdk-8-jre unzip
+
+COPY ${COSPKGNAME} /
+
+RUN unzip /${COSPKGNAME} -d / \
+    && mv /${COSVERSION} /cosbench \
+    && rm -f /${COSPKGNAME} \
+    && rm -rf /${COSVERSION} \
+    && rm -f /bin/sh && ln -s /bin/bash /bin/sh
+
+ADD start-cosbench.sh /cosbench/
+
+RUN chmod a+x /cosbench/*.sh
+
+CMD ["/cosbench/start-cosbench.sh"]
+#CMD ["/bin/sh"]     # DEBUG
