@@ -4,7 +4,7 @@ containerized COSbench - supports multiple drivers per node
 NOTE: due to file size limitations the cosbench release zipfile needs to be seperately downloaded.
 Prior to building the container image you will need to download this specific COSbench release
 
-wget 
+$ wget 
 https://github.com/intel-cloud/cosbench/releases/download/v0.4.2.c4/0.4.2.c4.zip
 
 ## BUILD the container image following these steps:
