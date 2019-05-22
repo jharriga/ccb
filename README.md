@@ -1,5 +1,5 @@
 # ccbdrvr
-containerized COSbench - supports multiple drivers per node
+containerized COSbench - supports multiple drivers per container
 
 NOTE: due to file size limitations the cosbench release zipfile needs to be seperately downloaded.
 Prior to building the container image you will need to download this specific COSbench release
