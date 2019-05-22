@@ -14,7 +14,7 @@ https://github.com/intel-cloud/cosbench/releases/download/v0.4.2.c4/0.4.2.c4.zip
 3) # wget https://github.com/intel-cloud/cosbench/releases/download/v0.4.2.c4/0.4.2.c4.zip
 4) # docker build -t <imagename> .
 ```
-docker list images
+$ docker list images
 
 ## RUN the container image in these scenarios:
 ```bash
@@ -53,3 +53,4 @@ Start controller:
 -e DRIVERS="http://192.168.0.210:18088/driver http://192.168.0.210:18188/driver http://192.168.0.210:18288/driver" \
 -e COSBENCH_PLUGINS="SWIFT,S3" <image-name>
 ```
+$ netstat -tulpn | grep LISTEN       ← 18088/89; 18188/89; 18288/89
