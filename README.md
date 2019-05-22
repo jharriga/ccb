@@ -8,7 +8,7 @@ https://github.com/intel-cloud/cosbench/releases/download/v0.4.2.c4/0.4.2.c4.zip
 
 BUILD the container image following these steps:
 1) # git clone <this repo>
-2) cd <this repo dir>
+2) # cd <this repo dir>
 3) # wget https://github.com/intel-cloud/cosbench/releases/download/v0.4.2.c4/0.4.2.c4.zip
 4) # docker build -t <imagename> .
 
