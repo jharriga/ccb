@@ -1,11 +1,11 @@
 # ccb
 containerized COSbench - supports multiple drivers per container
 
-NOTE: repo provides both Dockerfile and docker-compose.yml
-# To use docker-compose
+Provides both docker-compose and docker build Dockerfile
+# Use docker-compose
 NOTE: requires git version 2.1 or newer
 See "https://computingforgeeks.com/how-to-install-latest-version-of-git-git-2-x-on-centos-7/"
-## BUILD and RUN w/docker-compose.yml following these steps:
+## BUILD and RUN w/docker-compose following these steps:
 ```bash
 - # cd dockerCompose
 Select deployment type:
@@ -25,7 +25,7 @@ Edit docker-compose.yml and change these as needed:
 - COSBENCH_PLUGINS=
 - ports:
 
-# To use: Dockerfile
+# Use: docker build Dockerfile
 ## BUILD w/Dockerfile following these steps:
 ```bash
 1) # git clone <this repo>
