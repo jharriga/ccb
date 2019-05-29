@@ -2,7 +2,7 @@
 containerized COSbench - supports multiple drivers per container
 
 NOTE: repo provides both Dockerfile and docker-compose.yml
-# docker-compose
+# To use docker-compose
 ## BUILD and RUN w/docker-compose.yml following these steps:
 ```bash
 1) To build and run the COSbench controller
@@ -11,13 +11,18 @@ NOTE: repo provides both Dockerfile and docker-compose.yml
 2) To build and run the COSbench driver(s)  <-- starts 2 drivers
 - # cp docker-compose.2DRVRS docker-compose.yml
 - # docker-compose up --build --detach
+3) To build and run both COSbench controller and driver
+- # cp docker-compose.BOTH docker-compose.yml
+- # docker-compose up --build --detach
+TO Stop and Remove:
+- # docker-compose down --rmi all
 ```
 Edit docker-compose.yml to change these as needed:
 - DRIVERS=
 - COSBENCH_PLUGINS=
 - ports:
 
-# Dockerfile
+# To use: Dockerfile
 ## BUILD w/Dockerfile following these steps:
 ```bash
 1) # git clone <this repo>
