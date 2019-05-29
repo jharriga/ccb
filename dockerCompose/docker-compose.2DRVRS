@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  ccbdrvr:
+    build: https://github.com/jharriga/ccb.git
+    image: ccbdrvr
+    environment:
+     - CONTROLLER=false
+     - DRIVER=true
+     - DRIVERS=http://192.168.0.210:18088/driver,http://192.168.0.210:18188/driver
+     - COSBENCH_PLUGINS=SWIFT,S3
+    stdin_open: true
+    tty: true
+    network_mode: "host"
+    ports:
+      - 18088
+      - 18188
