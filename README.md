@@ -12,9 +12,10 @@ NOTE: repo provides both Dockerfile and docker-compose.yml
 - # cp docker-compose.2DRVRS docker-compose.yml
 - # docker-compose up --build --detach
 ```
-Edit docker-compose.yml to change these environment vars:
-- DRIVERS
-- COSBENCH_PLUGINS
+Edit docker-compose.yml to change these as needed:
+- DRIVERS=
+- COSBENCH_PLUGINS=
+- ports:
 
 # Dockerfile
 ## BUILD w/Dockerfile following these steps:
