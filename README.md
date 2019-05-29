@@ -5,19 +5,20 @@ NOTE: repo provides both Dockerfile and docker-compose.yml
 # To use docker-compose
 ## BUILD and RUN w/docker-compose.yml following these steps:
 ```bash
+- # cd dockerCompose
+Select deployment type:
 1) To build and run the COSbench controller
 - # cp docker-compose.CNTRL docker-compose.yml
-- # docker-compose up --build --detach
 2) To build and run the COSbench driver(s)  <-- starts 2 drivers
 - # cp docker-compose.2DRVRS docker-compose.yml
-- # docker-compose up --build --detach
 3) To build and run both COSbench controller and driver
 - # cp docker-compose.BOTH docker-compose.yml
+Build and Run
 - # docker-compose up --build --detach
 TO Stop and Remove:
 - # docker-compose down --rmi all
 ```
-Edit docker-compose.yml to change these as needed:
+Edit docker-compose.yml and change these as needed:
 - DRIVERS=
 - COSBENCH_PLUGINS=
 - ports:
