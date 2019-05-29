@@ -1,18 +1,27 @@
 # ccb
 containerized COSbench - supports multiple drivers per container
 
-NOTE: due to file size limitations the cosbench release zipfile needs to be seperately downloaded.
-Prior to building the container image you will need to download this specific COSbench release
+NOTE: repo provides both Dockerfile and docker-compose.yml
+# docker-compose
+## BUILD and RUN w/docker-compose.yml following these steps:
+```bash
+1) To build and run the COSbench controller
+- # cp docker-compose.CNTRL docker-compose.yml
+- # docker-compose up --build --detach
+2) To build and run the COSbench driver(s)  <-- starts 2 drivers
+- # cp docker-compose.2DRVRS docker-compose.yml
+- # docker-compose up --build --detach
+```
+Edit docker-compose.yml to change these environment vars:
+- DRIVERS
+- COSBENCH_PLUGINS
 
-$ wget 
-https://github.com/intel-cloud/cosbench/releases/download/v0.4.2.c4/0.4.2.c4.zip
-
-## BUILD the container image following these steps:
+# Dockerfile
+## BUILD w/Dockerfile following these steps:
 ```bash
 1) # git clone <this repo>
 2) # cd <this repo dir>
-3) # wget https://github.com/intel-cloud/cosbench/releases/download/v0.4.2.c4/0.4.2.c4.zip
-4) # docker build -t <imagename> .
+3) # docker build -t <imagename> .
 ```
 $ docker images    ← check for imagename
 
