@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  ccbboth:
+    build: https://github.com/jharriga/ccb.git
+    image: ccbboth
+    environment:
+     - CONTROLLER=true
+     - DRIVER=true
+     - DRIVERS=http://127.0.0.1:18088/driver
+     - COSBENCH_PLUGINS=SWIFT,S3
+    stdin_open: true
+    tty: true
+    network_mode: "host"
+    ports:
+      - 18088
+      - 19088
