@@ -54,12 +54,12 @@ Specify driver URLs with port numbers
 Start drivers:
 nuc# docker run -dit --restart unless-stopped --net=host \
 -e CONTROLLER=false -e DRIVER=true \
--e DRIVERS="http://192.168.0.210:18088/driver http://192.168.0.210:18188/driver http://192.168.0.210:18288/driver" \
+-e DRIVERS="http://192.168.0.210:18088/driver http://192.168.0.210:18188/driver" \
 -e COSBENCH_PLUGINS="SWIFT,S3" <image-name>
 Start controller:
 # docker run -dit --restart unless-stopped --net=host \
 -e CONTROLLER=true -e DRIVER=false \
--e DRIVERS="http://192.168.0.210:18088/driver http://192.168.0.210:18188/driver http://192.168.0.210:18288/driver" \
+-e DRIVERS="http://192.168.0.210:18088/driver http://192.168.0.210:18188/driver" \
 -e COSBENCH_PLUGINS="SWIFT,S3" <image-name>
 ```
 $ netstat -tulpn | grep LISTEN       ← 18088/89; 18188/89; 18288/89
