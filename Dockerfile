@@ -8,9 +8,7 @@ ENV COSWGET="https://github.com/intel-cloud/cosbench/releases/download/v${COSVER
 RUN yum install -y wget unzip which nmap-ncat java && \
     yum clean all
 
-RUN wget ${COSWGET}
-
-COPY ${COSPKGNAME} /
+RUN wget ${COSWGET} && COPY ${COSPKGNAME} /
 
 RUN unzip /${COSPKGNAME} -d / \
     && mv /${COSVERSION} /cosbench \
