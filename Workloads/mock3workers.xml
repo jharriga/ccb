@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workload name="THREEworker"
+    description="MOCK sample workload configuration" config="">
+    <auth type="mock" config=""/>
+    <storage type="mock" config=""/>
+    <workflow config="">
+        <workstage name="init" closuredelay="0" config="">
+            <auth type="mock" config=""/>
+            <storage type="mock" config=""/>
+            <work name="init" type="init" workers="1" interval="5"
+                division="container" runtime="0" rampup="0" rampdown="0"
+                afr="0" totalOps="1" totalBytes="0" config="containers=r(1,32)">
+                <auth type="mock" config=""/>
+                <storage type="mock" config=""/>
+                <operation type="init" ratio="100" division="container"
+                    config="containers=r(1,32);containers=r(1,32);objects=r(0,0);sizes=c(0)B;containers=r(1,32)" id="none"/>
+            </work>
+        </workstage>
+        <workstage name="prepare" closuredelay="0" config="">
+            <auth type="mock" config="delay=0"/>
+            <storage type="mock" config="delay=0"/>
+            <work name="prepare" type="prepare" workers="3" interval="5"
+                division="object" runtime="0" rampup="0" rampdown="0"
+                afr="0" totalOps="1" totalBytes="0" config="containers=r(1,32);objects=r(1,100);sizes=u(64,64)KB">
+                <auth type="mock" config="delay=0"/>
+                <storage type="mock" config="delay=0"/>
+                <operation type="prepare" ratio="100" division="object"
+                    config="containers=r(1,32);objects=r(1,100);sizes=u(64,64)KB;containers=r(1,32);objects=r(1,100);sizes=u(64,64)KB;createContainer=false;containers=r(1,32);objects=r(1,100);sizes=u(64,64)KB" id="none"/>
+            </work>
+        </workstage>
+        <workstage name="read" closuredelay="0" config="">
+            <auth type="mock" config="delay=0"/>
+            <storage type="mock" config="delay=0"/>
+            <work name="read" type="read" workers="3" interval="5"
+                division="none" runtime="300" rampup="0" rampdown="0"
+                afr="200000" totalOps="0" totalBytes="0" config="">
+                <auth type="mock" config="delay=0"/>
+                <storage type="mock" config="delay=0"/>
+                <operation type="read" ratio="100" division="none"
+                    config="containers=u(1,32);objects=u(1,100);" id="none"/>
+            </work>
+        </workstage>
+        <workstage name="list" closuredelay="0" config="">
+            <auth type="mock" config="delay=0"/>
+            <storage type="mock" config="delay=0"/>
+            <work name="list" type="list" workers="3" interval="5"
+                division="none" runtime="300" rampup="0" rampdown="0"
+                afr="200000" totalOps="0" totalBytes="0" config="">
+                <auth type="mock" config="delay=0"/>
+                <storage type="mock" config="delay=0"/>
+                <operation type="list" ratio="100" division="none"
+                    config="containers=u(1,32);objects=u(1,100);" id="none"/>
+            </work>
+        </workstage>
+        <workstage name="cleanup" closuredelay="0" config="">
+            <auth type="mock" config="delay=0"/>
+            <storage type="mock" config="delay=0"/>
+            <work name="cleanup" type="cleanup" workers="3" interval="5"
+                division="object" runtime="0" rampup="0" rampdown="0"
+                afr="0" totalOps="1" totalBytes="0" config="containers=r(1,32);objects=r(1,100);">
+                <auth type="mock" config="delay=0"/>
+                <storage type="mock" config="delay=0"/>
+                <operation type="cleanup" ratio="100" division="object"
+                    config="containers=r(1,32);objects=r(1,100);;containers=r(1,32);objects=r(1,100);;deleteContainer=false;containers=r(1,32);objects=r(1,100);" id="none"/>
+            </work>
+        </workstage>
+        <workstage name="dispose" closuredelay="0" config="">
+            <auth type="mock" config=""/>
+            <storage type="mock" config=""/>
+            <work name="dispose" type="dispose" workers="1" interval="5"
+                division="container" runtime="0" rampup="0" rampdown="0"
+                afr="0" totalOps="1" totalBytes="0" config="containers=r(1,32);">
+                <auth type="mock" config=""/>
+                <storage type="mock" config=""/>
+                <operation type="dispose" ratio="100"
+                    division="container"
+                    config="containers=r(1,32);;containers=r(1,32);;objects=r(0,0);sizes=c(0)B;containers=r(1,32);" id="none"/>
+            </work>
+        </workstage>
+    </workflow>
+</workload>
