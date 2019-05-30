@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workload name="THREEworker"
+<workload name="THREEworker0ms"
     description="MOCK sample workload configuration" config="">
     <auth type="mock" config=""/>
     <storage type="mock" config=""/>
